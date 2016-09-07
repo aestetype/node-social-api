@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 import Bluebird from 'bluebird';
 import nock from 'nock';
 import Core from '../src/core/core';
@@ -6,18 +5,18 @@ import Core from '../src/core/core';
 describe('Core', () => {
   it('should be a class', () => {
     const core = new Core({});
-    assert.ok(core instanceof Core);
+    expect(core instanceof Core).toBeTruthy();
   });
 
   describe('#constructor', () => {
     it('should set global Promise by default', () => {
       const core = new Core({});
-      assert.equal(core.Promise, Promise);
+      expect(core.Promise).toEqual(Promise);
     });
 
     it('should overwrite Promise', () => {
       const core = new Core({ Promise: Bluebird });
-      assert.equal(core.Promise, Bluebird);
+      expect(core.Promise).toEqual(Bluebird);
     });
   });
 
@@ -36,7 +35,7 @@ describe('Core', () => {
         method: 'GET',
         uri: 'https://api.instagram.com',
       });
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('should return request result', async () => {
@@ -47,7 +46,7 @@ describe('Core', () => {
         method: 'GET',
         uri: 'https://api.instagram.com',
       });
-      assert.equal(result, 'success');
+      expect(result).toEqual('success');
     });
 
     it('should return request error', async () => {
@@ -60,7 +59,7 @@ describe('Core', () => {
           uri: 'https://api.instagram.com',
         });
       } catch (err) {
-        assert.equal(err.body, 'error');
+        expect(err.body).toEqual('error');
       }
     });
   });

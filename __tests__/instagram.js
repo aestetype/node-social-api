@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 import nock from 'nock';
 import Core from '../src/core/core';
 import Instagram from '../src/instagram';
@@ -11,12 +10,12 @@ describe('Instagram', () => {
 
   it('should be a class', () => {
     const instagram = new Instagram(auth);
-    assert.ok(instagram instanceof Instagram);
+    expect(instagram instanceof Instagram).toBeTruthy();
   });
 
   it('should be a class extending Core', () => {
     const instagram = new Instagram(auth);
-    assert.ok(instagram instanceof Core);
+    expect(instagram instanceof Core).toBeTruthy();
   });
 
   describe('#constructor', () => {
@@ -24,7 +23,7 @@ describe('Instagram', () => {
       try {
         new Instagram(); // eslint-disable-line no-new
       } catch (e) {
-        assert.match(e, /clientId/);
+        expect(e.message).toMatch(/clientId/);
       }
     });
 
@@ -32,31 +31,31 @@ describe('Instagram', () => {
       try {
         new Instagram({ clientId: 'clientId' }); // eslint-disable-line no-new
       } catch (e) {
-        assert.match(e, /accessToken/);
+        expect(e.message).toMatch(/accessToken/);
       }
     });
 
     it('should set this.options', () => {
       const instagram = new Instagram(auth);
-      assert.equal(instagram.options.client_id, auth.clientId, 'should set clientId');
-      assert.equal(instagram.options.access_token, auth.accessToken, 'should set accessToken');
+      expect(instagram.options.client_id).toEqual(auth.clientId);
+      expect(instagram.options.access_token).toEqual(auth.accessToken);
     });
 
     it('should be api version v1 by default', () => {
       const instagram = new Instagram(auth);
-      assert.equal(instagram.version, 'v1');
+      expect(instagram.version).toEqual('v1');
     });
 
     it('should overwrite api version', () => {
       const instagram = new Instagram(auth, {
         version: 'v2',
       });
-      assert.equal(instagram.version, 'v2');
+      expect(instagram.version).toEqual('v2');
     });
 
     it('should create baseApiUrl', () => {
       const instagram = new Instagram(auth);
-      assert.equal(instagram.baseApiUrl, `${instagram.url}/${instagram.version}`);
+      expect(instagram.baseApiUrl).toEqual(`${instagram.url}/${instagram.version}`);
     });
   });
 
@@ -64,7 +63,7 @@ describe('Instagram', () => {
     const instagram = new Instagram(auth);
 
     it('should be a function', () => {
-      assert.isFunction(instagram.get);
+      expect(typeof instagram.get).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -74,7 +73,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken })
         .reply(200, 'success');
       const promise = instagram.get(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make get request', async () => {
@@ -84,7 +83,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken })
         .reply(200, 'success');
       const result = await instagram.get(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -94,7 +93,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken, q: 'sunset' })
         .reply(200, 'success');
       const result = await instagram.get(endpoint, { q: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 
@@ -102,7 +101,7 @@ describe('Instagram', () => {
     const instagram = new Instagram(auth);
 
     it('should be a function', () => {
-      assert.isFunction(instagram.post);
+      expect(typeof instagram.post).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -113,7 +112,7 @@ describe('Instagram', () => {
         })
         .reply(200, 'success');
       const promise = instagram.post(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make post request', async () => {
@@ -124,7 +123,7 @@ describe('Instagram', () => {
         })
         .reply(200, 'success');
       const result = await instagram.post(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -135,7 +134,7 @@ describe('Instagram', () => {
         })
         .reply(200, 'success');
       const result = await instagram.post(endpoint, { q: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 
@@ -143,7 +142,7 @@ describe('Instagram', () => {
     const instagram = new Instagram(auth);
 
     it('should be a function', () => {
-      assert.isFunction(instagram.delete);
+      expect(typeof instagram.delete).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -153,7 +152,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken })
         .reply(200, 'success');
       const promise = instagram.delete(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make delete request', async () => {
@@ -163,7 +162,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken })
         .reply(200, 'success');
       const result = await instagram.delete(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -173,7 +172,7 @@ describe('Instagram', () => {
         .query({ client_id: auth.clientId, access_token: auth.accessToken, q: 'sunset' })
         .reply(200, 'success');
       const result = await instagram.delete(endpoint, { q: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 });

@@ -1,20 +1,19 @@
-import { assert } from 'chai';
 import * as lib from '../src/index';
 
 describe('lib', () => {
   it('should be an object', () => {
-    assert.ok(lib instanceof Object);
+    expect(typeof lib).toEqual('object');
   });
 
   it('should export with default object', () => {
-    assert.ok(lib.default instanceof Object);
+    expect(typeof lib.default).toEqual('object');
   });
 
   it('should export Twitter', () => {
-    assert.ok(lib.default.Twitter);
+    expect(lib.default.Twitter).toBeTruthy();
   });
 
   it('should export Instagram', () => {
-    assert.ok(lib.default.Instagram);
+    expect(lib.default.Instagram).toBeTruthy();
   });
 });

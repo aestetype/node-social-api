@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "lint": "eslint src test",
+    "lint": "eslint src __tests__",
     "test": "npm run lint && npm run test:src && npm run build",
-    "test:src": "mocha --compilers js:babel-core/register test/start.js test",
+    "test:src": "jest",
     "prepublish": "npm run test"
   },
   "author": "Léo Pradel",
@@ -34,14 +34,13 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
     "bluebird": "^3.4.6",
-    "chai": "^3.5.0",
     "coveralls": "^2.11.12",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
     "eslint-plugin-react": "^6.2.0",
-    "mocha": "^3.0.2",
+    "jest": "^15.1.1",
     "nock": "^8.0.0"
   },
   "dependencies": {

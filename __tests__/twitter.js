@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 import nock from 'nock';
 import Core from '../src/core/core';
 import Twitter from '../src/twitter';
@@ -13,12 +12,12 @@ describe('Twitter', () => {
 
   it('should be a class', () => {
     const twitter = new Twitter(oauth);
-    assert.ok(twitter instanceof Twitter);
+    expect(twitter instanceof Twitter).toBeTruthy();
   });
 
   it('should be a class extending Core', () => {
     const twitter = new Twitter(oauth);
-    assert.ok(twitter instanceof Core);
+    expect(twitter instanceof Core).toBeTruthy();
   });
 
   describe('#constructor', () => {
@@ -26,7 +25,7 @@ describe('Twitter', () => {
       try {
         new Twitter(); // eslint-disable-line no-new
       } catch (e) {
-        assert.match(e, /consumerKey/);
+        expect(e.message).toMatch(/consumerKey/);
       }
     });
 
@@ -34,7 +33,7 @@ describe('Twitter', () => {
       try {
         new Twitter({ consumerKey: 'consumerKey' }); // eslint-disable-line no-new
       } catch (e) {
-        assert.match(e, /consumerSecret/);
+        expect(e.message).toMatch(/consumerSecret/);
       }
     });
 
@@ -45,7 +44,7 @@ describe('Twitter', () => {
           consumerSecret: 'consumerSecret',
         });
       } catch (e) {
-        assert.match(e, /accessToken/);
+        expect(e.message).toMatch(/accessToken/);
       }
     });
 
@@ -57,36 +56,33 @@ describe('Twitter', () => {
           accessToken: 'accessToken',
         });
       } catch (e) {
-        assert.match(e, /accessTokenSecret/);
+        expect(e.message).toMatch(/accessTokenSecret/);
       }
     });
 
     it('should set this.oauth', () => {
       const twitter = new Twitter(oauth);
-      assert.equal(twitter.oauth.consumer_key, oauth.consumerKey, 'should set consumerKey');
-      assert.equal(twitter.oauth.consumer_secret, oauth.consumerSecret,
-        'should set consumerSecret');
-      assert.equal(twitter.oauth.token, oauth.accessToken,
-        'should set accessToken');
-      assert.equal(twitter.oauth.token_secret, oauth.accessTokenSecret,
-        'should set accessTokenSecret');
+      expect(twitter.oauth.consumer_key).toEqual(oauth.consumerKey);
+      expect(twitter.oauth.consumer_secret).toEqual(oauth.consumerSecret);
+      expect(twitter.oauth.token).toEqual(oauth.accessToken);
+      expect(twitter.oauth.token_secret).toEqual(oauth.accessTokenSecret);
     });
 
     it('should be api version 1.1 by default', () => {
       const twitter = new Twitter(oauth);
-      assert.equal(twitter.version, '1.1');
+      expect(twitter.version).toEqual('1.1');
     });
 
     it('should overwrite api version', () => {
       const twitter = new Twitter(oauth, {
         version: '2',
       });
-      assert.equal(twitter.version, '2');
+      expect(twitter.version).toEqual('2');
     });
 
     it('should create baseApiUrl', () => {
       const twitter = new Twitter(oauth);
-      assert.equal(twitter.baseApiUrl, `${twitter.url}/${twitter.version}`);
+      expect(twitter.baseApiUrl).toEqual(`${twitter.url}/${twitter.version}`);
     });
   });
 
@@ -96,7 +92,7 @@ describe('Twitter', () => {
     const twitter = new Twitter(oauth);
 
     it('should be a function', () => {
-      assert.isFunction(twitter.get);
+      expect(typeof twitter.get).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -105,7 +101,7 @@ describe('Twitter', () => {
         .get(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const promise = twitter.get(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make get request', async () => {
@@ -114,7 +110,7 @@ describe('Twitter', () => {
         .get(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const result = await twitter.get(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -124,7 +120,7 @@ describe('Twitter', () => {
         .query({ q: 'sunset' })
         .reply(200, 'success');
       const result = await twitter.get(endpoint, { q: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 
@@ -132,7 +128,7 @@ describe('Twitter', () => {
     const twitter = new Twitter(oauth);
 
     it('should be a function', () => {
-      assert.isFunction(twitter.post);
+      expect(typeof twitter.post).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -141,7 +137,7 @@ describe('Twitter', () => {
         .post(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const promise = twitter.post(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make post request', async () => {
@@ -150,7 +146,7 @@ describe('Twitter', () => {
         .post(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const result = await twitter.post(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -161,7 +157,7 @@ describe('Twitter', () => {
         })
         .reply(200, 'success');
       const result = await twitter.post(endpoint, { status: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 
@@ -169,7 +165,7 @@ describe('Twitter', () => {
     const twitter = new Twitter(oauth);
 
     it('should be a function', () => {
-      assert.isFunction(twitter.delete);
+      expect(typeof twitter.delete).toBe('function');
     });
 
     it('should return a promise', () => {
@@ -178,7 +174,7 @@ describe('Twitter', () => {
         .delete(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const promise = twitter.delete(endpoint);
-      assert.ok(promise instanceof Promise);
+      expect(promise instanceof Promise).toBeTruthy();
     });
 
     it('sould make delete request', async () => {
@@ -187,7 +183,7 @@ describe('Twitter', () => {
         .delete(`/1.1/${endpoint}.json`)
         .reply(200, 'success');
       const result = await twitter.delete(endpoint);
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
 
     it('sould pass parameters', async () => {
@@ -197,7 +193,7 @@ describe('Twitter', () => {
         .query({ q: 'sunset' })
         .reply(200, 'success');
       const result = await twitter.delete(endpoint, { q: 'sunset' });
-      assert.equal(result, 'success');
+      expect(result).toBe('success');
     });
   });
 });
