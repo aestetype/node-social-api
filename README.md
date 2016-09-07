@@ -5,3 +5,54 @@
 [![devDependency Status](https://david-dm.org/pradel/node-social-api/dev-status.svg)](https://david-dm.org/pradel/node-social-api#info=devDependencies)
 
 # node-social-api
+
+Social api client for node that support promises.
+Include:
+* Twitter
+* Instagram
+* Facebook
+
+## Install
+
+`npm install --save node-social-api`
+
+## Usage
+
+```javascript
+import { Instagram, Twitter, Facebook } from 'node-social-api';
+
+// Create a new Instagram instance.
+const instagram = new Instagram({
+  clientId: 'your-client-id',
+  accessToken: 'user-access-token',
+});
+
+// Some get query
+instagram.get('users/self').then((data) => {
+  console.log(data);
+});
+
+// Create a new Twitter instance.
+const twitter = new Twitter({
+  consumerKey: 'your-consumer-key',
+  consumerSecret: 'your-consumer-secret',
+  accessToken: 'your-access-token',
+  accessTokenSecret: 'your-access-token-secret',
+});
+
+// Some get query
+twitter.get('media/recent').then((data) => {
+  console.log(data);
+});
+
+// Create a new Facebook instance.
+const facebook = new Facebook({
+  appId: 'your-app-id',
+  appSecret: 'your-app-secret',
+});
+
+// Some get query
+facebook.get(':some-id').then((data) => {
+  console.log(data);
+});
+```
