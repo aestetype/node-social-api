@@ -95,6 +95,19 @@ describe('Facebook', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
+    it('sould have callback', (done) => {
+      const endpoint = 'media/recent';
+      nock('https://graph.facebook.com')
+        .get(`/v2.5/${endpoint}`)
+        .query({ access_token: accessToken })
+        .reply(200, 'success');
+      facebook.get(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
+    });
+
     it('sould make get request', async () => {
       const endpoint = 'media/recent';
       nock('https://graph.facebook.com')
@@ -130,6 +143,18 @@ describe('Facebook', () => {
         .reply(200, 'success');
       const promise = facebook.post(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'media/recent';
+      nock('https://graph.facebook.com')
+        .post(`/v2.5/${endpoint}`)
+        .reply(200, 'success');
+      facebook.post(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make post request', async () => {
@@ -169,6 +194,19 @@ describe('Facebook', () => {
         .reply(200, 'success');
       const promise = facebook.delete(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'media/recent';
+      nock('https://graph.facebook.com')
+        .delete(`/v2.5/${endpoint}`)
+        .query({ access_token: accessToken })
+        .reply(200, 'success');
+      facebook.delete(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make delete request', async () => {

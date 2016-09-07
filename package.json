@@ -12,9 +12,14 @@
     "prepublish": "npm run build"
   },
   "jest": {
+    "testEnvironment": "node",
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
-    "moduleFileExtensions": ["js", "json", "es6"]
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   },
   "author": "Léo Pradel",
   "keywords": [
@@ -51,6 +56,7 @@
     "nock": "^8.0.0"
   },
   "dependencies": {
+    "lodash.isfunction": "^3.0.8",
     "request": "^2.74.0"
   }
 }

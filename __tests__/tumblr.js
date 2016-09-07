@@ -66,6 +66,19 @@ describe('Tumblr', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.tumblr.com')
+        .get(`/v2/${endpoint}`)
+        .query({ api_key: auth.consumerKey })
+        .reply(200, 'success');
+      tumblr.get(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
+    });
+
     it('sould make get request', async () => {
       const endpoint = 'tag/sunset';
       nock('https://api.tumblr.com')
@@ -103,6 +116,21 @@ describe('Tumblr', () => {
         .reply(200, 'success');
       const promise = tumblr.post(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.tumblr.com')
+        .post(`/v2/${endpoint}`, {
+          api_key: auth.consumerKey,
+        })
+        .query({ api_key: auth.consumerKey })
+        .reply(200, 'success');
+      tumblr.post(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make post request', async () => {

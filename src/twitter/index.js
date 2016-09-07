@@ -1,3 +1,4 @@
+import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
 
 class Twitter extends Core {
@@ -19,34 +20,46 @@ class Twitter extends Core {
     this.baseApiUrl = `${this.url}/${this.version}`;
   }
 
-  get(url, options = {}) {
+  get(url, options = {}, callback) {
+    if (isFunction(options)) {
+      callback = options;
+      options = {};
+    }
     return this.request({
       method: 'GET',
       json: true,
       uri: `${this.baseApiUrl}/${url}.json`,
       oauth: this.oauth,
       qs: options,
-    });
+    }, callback);
   }
 
-  post(url, options = {}) {
+  post(url, options = {}, callback) {
+    if (isFunction(options)) {
+      callback = options;
+      options = {};
+    }
     return this.request({
       method: 'POST',
       json: true,
       uri: `${this.baseApiUrl}/${url}.json`,
       oauth: this.oauth,
       form: options,
-    });
+    }, callback);
   }
 
-  delete(url, options = {}) {
+  delete(url, options = {}, callback) {
+    if (isFunction(options)) {
+      callback = options;
+      options = {};
+    }
     return this.request({
       method: 'DELETE',
       json: true,
       uri: `${this.baseApiUrl}/${url}.json`,
       oauth: this.oauth,
       qs: options,
-    });
+    }, callback);
   }
 }
 

@@ -14,13 +14,23 @@ class Core {
     });
   }
 
-  request(options) {
+  request(options, callback) {
     return new this.Promise((resolve, reject) => {
       request(options, (error, response, body) => {
         if (error) {
-          reject(error);
+          if (callback) {
+            callback(error);
+          } else {
+            reject(error);
+          }
         } else if (response.statusCode === 200) {
-          resolve(body);
+          if (callback) {
+            callback(null, body);
+          } else {
+            resolve(body);
+          }
+        } else if (callback) {
+          callback(response);
         } else {
           reject(response);
         }

@@ -76,6 +76,19 @@ describe('Instagram', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.instagram.com')
+        .get(`/v1/${endpoint}`)
+        .query({ client_id: auth.clientId, access_token: auth.accessToken })
+        .reply(200, 'success');
+      instagram.get(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
+    });
+
     it('sould make get request', async () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
@@ -113,6 +126,20 @@ describe('Instagram', () => {
         .reply(200, 'success');
       const promise = instagram.post(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.instagram.com')
+        .post(`/v1/${endpoint}`, {
+          client_id: auth.clientId, access_token: auth.accessToken,
+        })
+        .reply(200, 'success');
+      instagram.post(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make post request', async () => {
@@ -153,6 +180,19 @@ describe('Instagram', () => {
         .reply(200, 'success');
       const promise = instagram.delete(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.instagram.com')
+        .delete(`/v1/${endpoint}`)
+        .query({ client_id: auth.clientId, access_token: auth.accessToken })
+        .reply(200, 'success');
+      instagram.delete(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make delete request', async () => {

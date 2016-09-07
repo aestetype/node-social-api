@@ -1,3 +1,4 @@
+import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
 
 class Tumblr extends Core {
@@ -13,22 +14,30 @@ class Tumblr extends Core {
     this.baseApiUrl = `${this.url}/${this.version}`;
   }
 
-  get(url, options) {
+  get(url, options, callback) {
+    if (isFunction(options)) {
+      callback = options;
+      options = {};
+    }
     return this.request({
       method: 'GET',
       json: true,
       uri: `${this.baseApiUrl}/${url}`,
       qs: Object.assign(this.options, options),
-    });
+    }, callback);
   }
 
-  post(url, options) {
+  post(url, options, callback) {
+    if (isFunction(options)) {
+      callback = options;
+      options = {};
+    }
     return this.request({
       method: 'POST',
       json: true,
       uri: `${this.baseApiUrl}/${url}`,
       form: Object.assign(this.options, options),
-    });
+    }, callback);
   }
 }
 

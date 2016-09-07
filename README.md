@@ -6,7 +6,7 @@
 
 # node-social-api
 
-Social api client for node that support promises.
+Social api client for node that support promises and callback.
 Include:
 * Twitter
 * Instagram
@@ -20,7 +20,7 @@ Include:
 ## Usage
 
 ```javascript
-import { Instagram, Twitter, Facebook } from 'node-social-api';
+import { Instagram, Twitter, Facebook, Tumblr } from 'node-social-api';
 
 // Instagram
 const instagram = new Instagram({
@@ -28,8 +28,13 @@ const instagram = new Instagram({
   accessToken: 'user-access-token',
 });
 
-// Some get query
+// Some get query with promise
 instagram.get('users/self').then((data) => {
+  console.log(data);
+});
+
+// Some get query with callback
+instagram.get('users/self', (err, data) => {
   console.log(data);
 });
 

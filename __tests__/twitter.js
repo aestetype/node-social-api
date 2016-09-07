@@ -113,6 +113,18 @@ describe('Twitter', () => {
       expect(result).toBe('success');
     });
 
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.twitter.com')
+        .get(`/1.1/${endpoint}.json`)
+        .reply(200, 'success');
+      twitter.get(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
+    });
+
     it('sould pass parameters', async () => {
       const endpoint = 'search/tweets';
       nock('https://api.twitter.com')
@@ -138,6 +150,18 @@ describe('Twitter', () => {
         .reply(200, 'success');
       const promise = twitter.post(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.twitter.com')
+        .post(`/1.1/${endpoint}.json`)
+        .reply(200, 'success');
+      twitter.post(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make post request', async () => {
@@ -175,6 +199,18 @@ describe('Twitter', () => {
         .reply(200, 'success');
       const promise = twitter.delete(endpoint);
       expect(promise instanceof Promise).toBeTruthy();
+    });
+
+    it('sould have callback', (done) => {
+      const endpoint = 'tag/sunset';
+      nock('https://api.twitter.com')
+        .delete(`/1.1/${endpoint}.json`)
+        .reply(200, 'success');
+      twitter.delete(endpoint, (err, result) => {
+        expect(err).toBe(null);
+        expect(result).toBe('success');
+        done();
+      });
     });
 
     it('sould make delete request', async () => {

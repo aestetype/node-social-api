@@ -38,7 +38,7 @@ describe('Core', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
-    it('should return request result', async () => {
+    it('should return request result in promise', async () => {
       nock('https://api.instagram.com')
         .get('/')
         .reply(200, 'success');
@@ -49,7 +49,7 @@ describe('Core', () => {
       expect(result).toEqual('success');
     });
 
-    it('should return request error', async () => {
+    it('should return request error in promise', async () => {
       nock('https://api.instagram.com')
         .get('/')
         .reply(400, 'error');
@@ -63,7 +63,7 @@ describe('Core', () => {
       }
     });
 
-    it('should return connection error', async () => {
+    it('should return connection error in promise', async () => {
       nock('https://api.instagram.com')
         .get('/')
         .delayConnection(2000)
@@ -77,6 +77,51 @@ describe('Core', () => {
       } catch (err) {
         expect(err.code).toEqual('ETIMEDOUT');
       }
+    });
+
+    it('should return request result in callback', (done) => {
+      nock('https://api.instagram.com')
+        .get('/')
+        .reply(200, 'success');
+      core.request({
+        method: 'GET',
+        uri: 'https://api.instagram.com',
+      }, (err, result) => {
+        expect(err).toEqual(null);
+        expect(result).toEqual('success');
+        done();
+      });
+    });
+
+    it('should return request error in callback', (done) => {
+      nock('https://api.instagram.com')
+        .get('/')
+        .reply(400, 'error');
+      core.request({
+        method: 'GET',
+        uri: 'https://api.instagram.com',
+      }, (err, result) => {
+        expect(err.statusCode).toEqual(400);
+        expect(err.body).toEqual('error');
+        expect(result).toEqual(undefined);
+        done();
+      });
+    });
+
+    it('should return connection error in callback', (done) => {
+      nock('https://api.instagram.com')
+        .get('/')
+        .delayConnection(2000)
+        .reply(400, 'error');
+      core.request({
+        method: 'GET',
+        uri: 'https://api.instagram.com',
+        timeout: 1000,
+      }, (err, result) => {
+        expect(err.code).toEqual('ETIMEDOUT');
+        expect(result).toEqual(undefined);
+        done();
+      });
     });
   });
 });
