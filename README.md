@@ -11,6 +11,7 @@ Include:
 * Twitter
 * Instagram
 * Facebook
+* Tumblr
 
 ## Install
 
@@ -53,6 +54,16 @@ const facebook = new Facebook({
 
 // Some get query
 facebook.get(':some-id').then((data) => {
+  console.log(data);
+});
+
+// Create a new Facebook instance.
+const tumblr = new Tumblr({
+  consumerKey: 'your-consumer-key',
+});
+
+// Some get query
+tumblr.get('blog/scipsy.tumblr.com/info').then((data) => {
   console.log(data);
 });
 ```

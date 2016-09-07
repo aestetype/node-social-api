@@ -1,16 +1,15 @@
 import Core from '../core/core';
 
-class Instagram extends Core {
+class Tumblr extends Core {
   constructor(config = {}, options = {}) {
     super(options);
-    this.name = 'instagram';
-    this.checkValidConfig(['clientId', 'accessToken'], config);
+    this.name = 'tumblr';
+    this.checkValidConfig(['consumerKey'], config);
     this.options = {
-      client_id: config.clientId,
-      access_token: config.accessToken,
+      api_key: config.consumerKey,
     };
-    this.url = 'https://api.instagram.com';
-    this.version = options.version || 'v1';
+    this.url = 'https://api.tumblr.com';
+    this.version = options.version || 'v2';
     this.baseApiUrl = `${this.url}/${this.version}`;
   }
 
@@ -31,15 +30,6 @@ class Instagram extends Core {
       form: Object.assign(this.options, options),
     });
   }
-
-  delete(url, options) {
-    return this.request({
-      method: 'DELETE',
-      json: true,
-      uri: `${this.baseApiUrl}/${url}`,
-      qs: Object.assign(this.options, options),
-    });
-  }
 }
 
-export default Instagram;
+export default Tumblr;
