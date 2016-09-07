@@ -62,5 +62,21 @@ describe('Core', () => {
         expect(err.body).toEqual('error');
       }
     });
+
+    it('should return connection error', async () => {
+      nock('https://api.instagram.com')
+        .get('/')
+        .delayConnection(2000)
+        .reply(400, 'error');
+      try {
+        await core.request({
+          method: 'GET',
+          uri: 'https://api.instagram.com',
+          timeout: 1000,
+        });
+      } catch (err) {
+        expect(err.code).toEqual('ETIMEDOUT');
+      }
+    });
   });
 });
