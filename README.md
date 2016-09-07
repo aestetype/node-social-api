@@ -22,7 +22,7 @@ Include:
 ```javascript
 import { Instagram, Twitter, Facebook } from 'node-social-api';
 
-// Create a new Instagram instance.
+// Instagram
 const instagram = new Instagram({
   clientId: 'your-client-id',
   accessToken: 'user-access-token',
@@ -33,7 +33,7 @@ instagram.get('users/self').then((data) => {
   console.log(data);
 });
 
-// Create a new Twitter instance.
+// Twitter
 const twitter = new Twitter({
   consumerKey: 'your-consumer-key',
   consumerSecret: 'your-consumer-secret',
@@ -46,7 +46,7 @@ twitter.get('media/recent').then((data) => {
   console.log(data);
 });
 
-// Create a new Facebook instance.
+// Facebook
 const facebook = new Facebook({
   appId: 'your-app-id',
   appSecret: 'your-app-secret',
@@ -57,7 +57,7 @@ facebook.get(':some-id').then((data) => {
   console.log(data);
 });
 
-// Create a new Facebook instance.
+// Tumblr
 const tumblr = new Tumblr({
   consumerKey: 'your-consumer-key',
 });
