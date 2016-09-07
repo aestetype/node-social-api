@@ -4,6 +4,7 @@ import Tumblr from '../src/tumblr';
 
 describe('Tumblr', () => {
   const auth = {
+    consumerKey: 'consumerKey',
   };
 
   it('should be a class', () => {
