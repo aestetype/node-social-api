@@ -1,6 +1,19 @@
 import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
 
+/**
+ * @class Tumblr
+ * @description Tumblr class
+ * @example
+ * const facebook = new Tumblr({
+ *  appId: 'your-app-id',
+ *  appSecret: 'your-app-secret',
+ * });
+ *
+ * facebook.get('some-facebook-id').then((data) => {
+ *  console.log(data);
+ * });
+ */
 class Tumblr extends Core {
   constructor(config = {}, options = {}) {
     super(options);

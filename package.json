@@ -10,6 +10,7 @@
     "test": "npm run lint && npm run test:src && npm run build",
     "test-travis": "npm run lint && npm run test:src -- --coverage && npm run build",
     "test:src": "jest",
+    "publish:docs": "npm run build:docs && git checkout gh-pages && ./generate-docs.sh",
     "prepublish": "npm run build"
   },
   "jest": {
