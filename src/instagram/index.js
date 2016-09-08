@@ -1,5 +1,6 @@
 import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
+import Stream from './stream';
 
 /**
  * @class Instagram
@@ -12,6 +13,13 @@ import Core from '../core/core';
  *
  * instagram.get('some-instagram-route').then((data) => {
  *  console.log(data);
+ * });
+ *
+ * // Streaming can be used on all endpoints taking MIN_TAG_ID as parameter
+ * const stream = instagram.stream('tags/:tag-name/media/recent');
+ *
+ * stream.on('message', (message) => {
+ *  console.log(message);
  * });
  */
 class Instagram extends Core {
@@ -105,6 +113,20 @@ class Instagram extends Core {
       uri: `${this.baseApiUrl}/${url}`,
       qs: Object.assign(this.options, options),
     }, callback);
+  }
+
+  /**
+   * @memberof Instagram
+   * @function stream
+   * @description Create a new instagram stream.<br />
+   * Streaming can be used on all endpoints taking MIN_TAG_ID as parameter.
+   *
+   * @param  {string} url
+   * @param  {Object} [options]
+   * @return {InstagramStream} A new instagram stream.
+   */
+  stream(url, options) {
+    return new Stream(this, url, options);
   }
 }
 

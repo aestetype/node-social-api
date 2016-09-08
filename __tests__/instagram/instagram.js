@@ -1,6 +1,7 @@
 import nock from 'nock';
-import Core from '../src/core/core';
-import Instagram from '../src/instagram';
+import Core from '../../src/core/core';
+import Instagram from '../../src/instagram';
+import InstagramStream from '../../src/instagram/stream';
 
 describe('Instagram', () => {
   const auth = {
@@ -213,6 +214,21 @@ describe('Instagram', () => {
         .reply(200, 'success');
       const result = await instagram.delete(endpoint, { q: 'sunset' });
       expect(result).toBe('success');
+    });
+  });
+
+  describe('#stream', () => {
+    const instagram = new Instagram(auth);
+
+    it('should be a function', () => {
+      expect(typeof instagram.stream).toBe('function');
+    });
+
+    it('should return a stream', () => {
+      const stream = instagram.stream('tags/sunset/media/recent', {
+        runOnCreation: false,
+      });
+      expect(stream instanceof InstagramStream).toBeTruthy();
     });
   });
 });

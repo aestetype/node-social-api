@@ -5,18 +5,22 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "build:docs": "documentation build src/* -f html -o docs --name node-social-api",
     "lint": "eslint src __tests__ examples",
     "test": "npm run lint && npm run test:src && npm run build",
     "test-travis": "npm run lint && npm run test:src -- --coverage && npm run build",
     "test:src": "jest",
-    "publish:docs": "npm run build:docs && git checkout gh-pages && ./generate-docs.sh",
+    "docs:serve": "documentation serve src/* -f html --name node-social-api --watch",
+    "docs:build": "documentation build src/* -f html -o docs --name node-social-api",
+    "docs:publish": "npm run docs:build && git checkout gh-pages && ./generate-docs.sh",
     "prepublish": "npm run build"
   },
   "jest": {
     "testEnvironment": "node",
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
+    "testPathIgnorePatterns": [
+      "__tests__/instagram/utils.js"
+    ],
     "moduleFileExtensions": [
       "js",
       "json",
