@@ -8,10 +8,10 @@
 
 Social api client for node that support promises and callback.
 Include:
-* Twitter
-* Instagram
-* Facebook
-* Tumblr
+* [Twitter](https://pradel.github.io/node-social-api/#twitter)
+* [Instagram](https://pradel.github.io/node-social-api/#instagram)
+* [Facebook](https://pradel.github.io/node-social-api/#facebook)
+* [Tumblr](https://pradel.github.io/node-social-api/#tumblr)
 
 ## Install
 
