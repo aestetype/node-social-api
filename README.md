@@ -42,6 +42,13 @@ instagram.get('users/self', (err, data) => {
   console.log(data);
 });
 
+// Create a new stream and only receive new messages
+const stream = instagram.stream('tags/:tag-name/media/recent');
+
+stream.on('message', (message) => {
+  console.log(message);
+});
+
 // Twitter
 const twitter = new Twitter({
   consumerKey: 'your-consumer-key',
