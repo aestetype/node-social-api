@@ -5,16 +5,24 @@ import Core from '../core/core';
  * @class Tumblr
  * @description Tumblr class
  * @example
- * const facebook = new Tumblr({
- *  appId: 'your-app-id',
- *  appSecret: 'your-app-secret',
+ * const tumblr = new Tumblr({
+ *  consumerKey: 'your-consumer-key',
  * });
  *
- * facebook.get('some-facebook-id').then((data) => {
+ * tumblr.get('some-tumblr-route').then((data) => {
  *  console.log(data);
  * });
  */
 class Tumblr extends Core {
+  /**
+   * @constructs Tumblr
+   * @description Constructs an instance of Tumblr.
+   *
+   * @param {object} config - Config of class.
+   * @param {string} config.consumerKey - consumerKey of Tumblr app.
+   * @param {object} [options] - Options of class.
+   *
+   */
   constructor(config = {}, options = {}) {
     super(options);
     this.name = 'tumblr';
@@ -27,6 +35,16 @@ class Tumblr extends Core {
     this.baseApiUrl = `${this.url}/${this.version}`;
   }
 
+  /**
+   * @memberof Tumblr
+   * @function get
+   * @description Make a get request to tumblr api.
+   *
+   * @param {string} url - Url of route.
+   * @param {object} [options] - Options to pass in request.
+   * @param {function} [callback] - Callback to call when the request finish.
+   * @return {promise}
+   */
   get(url, options, callback) {
     if (isFunction(options)) {
       callback = options;
@@ -40,6 +58,16 @@ class Tumblr extends Core {
     }, callback);
   }
 
+  /**
+   * @memberof Tumblr
+   * @function post
+   * @description Make a post request to tumblr api.
+   *
+   * @param {string} url - Url of route.
+   * @param {object} [options] - Options to pass in request.
+   * @param {function} [callback] - Callback to call when the request finish.
+   * @return {promise}
+   */
   post(url, options, callback) {
     if (isFunction(options)) {
       callback = options;
