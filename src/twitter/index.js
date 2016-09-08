@@ -1,7 +1,34 @@
 import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
 
+/**
+ * @class Twitter
+ * @description Twitter class
+ * @example
+ * const twitter = new Twitter({
+ *  consumerKey: 'your-app-consumer-key',
+ *  consumerSecret: 'your-app-consumer-secret',
+ *  accessToken: 'your-app-access-token',
+ *  accessTokenSecret: 'your-app-access-token-secret',
+ * });
+ *
+ * twitter.get('some-twitter-route').then((data) => {
+ *  console.log(data);
+ * });
+ */
 class Twitter extends Core {
+  /**
+   * @constructs Twitter
+   * @description Constructs an instance of Twitter.
+   *
+   * @param {object} config - Config of class.
+   * @param {string} config.consumerKey - consumerKey of Twitter app.
+   * @param {string} config.consumerSecret - consumerSecret of Twitter app.
+   * @param {string} config.accessToken - accessToken of Twitter app.
+   * @param {string} config.accessTokenSecret - accessTokenSecret of Twitter app.
+   * @param {object} [options] - Options of class.
+   *
+   */
   constructor(config = {}, options = {}) {
     super(options);
     this.name = 'twitter';
@@ -20,6 +47,16 @@ class Twitter extends Core {
     this.baseApiUrl = `${this.url}/${this.version}`;
   }
 
+  /**
+   * @memberof Twitter
+   * @function get
+   * @description Make a get request to twitter api.
+   *
+   * @param {string} url - Url of route.
+   * @param {object} [options] - Options to pass in request.
+   * @param {function} [callback] - Callback to call when the request finish.
+   * @return {promise}
+   */
   get(url, options = {}, callback) {
     if (isFunction(options)) {
       callback = options;
@@ -34,6 +71,16 @@ class Twitter extends Core {
     }, callback);
   }
 
+  /**
+   * @memberof Twitter
+   * @function post
+   * @description Make a post request to twitter api.
+   *
+   * @param {string} url - Url of route.
+   * @param {object} [options] - Options to pass in request.
+   * @param {function} [callback] - Callback to call when the request finish.
+   * @return {promise}
+   */
   post(url, options = {}, callback) {
     if (isFunction(options)) {
       callback = options;
@@ -48,6 +95,16 @@ class Twitter extends Core {
     }, callback);
   }
 
+  /**
+   * @memberof Twitter
+   * @function delete
+   * @description Make a get request to twitter api.
+   *
+   * @param {string} url - Url of route.
+   * @param {object} [options] - Options to pass in request.
+   * @param {function} [callback] - Callback to call when the request finish.
+   * @return {promise}
+   */
   delete(url, options = {}, callback) {
     if (isFunction(options)) {
       callback = options;
