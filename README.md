@@ -6,7 +6,9 @@
 
 # node-social-api
 
-[Documentation](https://pradel.github.io/node-social-api)
+[Documentation](https://pradel.github.io/node-social-api).
+
+[Examples](https://github.com/pradel/node-social-api/tree/master/examples).
 
 Social api client for node that support promises and callback.
 Include:
