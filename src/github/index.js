@@ -61,7 +61,7 @@ class Github extends Core {
       json: true,
       headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
-      qs: Object.assign(this.options, options),
+      qs: Object.assign({}, this.options, options),
     }, callback);
   }
 
@@ -85,7 +85,7 @@ class Github extends Core {
       json: true,
       headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
-      form: Object.assign(this.options, options),
+      form: Object.assign({}, this.options, options),
     }, callback);
   }
 
@@ -109,7 +109,7 @@ class Github extends Core {
       json: true,
       headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
-      qs: Object.assign(this.options, options),
+      qs: Object.assign({}, this.options, options),
     }, callback);
   }
 }

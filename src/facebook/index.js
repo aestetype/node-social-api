@@ -63,7 +63,7 @@ class Facebook extends Core {
       method: 'GET',
       json: true,
       uri: `${this.baseApiUrl}/${url}`,
-      qs: Object.assign(this.options, options),
+      qs: Object.assign({}, this.options, options),
     }, callback);
   }
 
@@ -86,7 +86,7 @@ class Facebook extends Core {
       method: 'POST',
       json: true,
       uri: `${this.baseApiUrl}/${url}`,
-      form: Object.assign(this.options, options),
+      form: Object.assign({}, this.options, options),
     }, callback);
   }
 
@@ -109,7 +109,7 @@ class Facebook extends Core {
       method: 'DELETE',
       json: true,
       uri: `${this.baseApiUrl}/${url}`,
-      qs: Object.assign(this.options, options),
+      qs: Object.assign({}, this.options, options),
     }, callback);
   }
 }
