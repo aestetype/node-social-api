@@ -67,7 +67,7 @@ describe('Github', () => {
       });
     });
 
-    it('sould make get request', async () => {
+    it('sould make get request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .get(`/${endpoint}`)
@@ -77,7 +77,7 @@ describe('Github', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .get(`/${endpoint}`)
@@ -120,7 +120,7 @@ describe('Github', () => {
       });
     });
 
-    it('sould make post request', async () => {
+    it('sould make post request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .post(`/${endpoint}`, {
@@ -131,7 +131,7 @@ describe('Github', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .post(`/${endpoint}`, {
@@ -173,7 +173,7 @@ describe('Github', () => {
       });
     });
 
-    it('sould make delete request', async () => {
+    it('sould make delete request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .delete(`/${endpoint}`)
@@ -183,7 +183,7 @@ describe('Github', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.github.com')
         .delete(`/${endpoint}`)

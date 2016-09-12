@@ -90,7 +90,7 @@ describe('Instagram', () => {
       });
     });
 
-    it('sould make get request', async () => {
+    it('sould make get request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .get(`/v1/${endpoint}`)
@@ -100,7 +100,7 @@ describe('Instagram', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .get(`/v1/${endpoint}`)
@@ -143,7 +143,7 @@ describe('Instagram', () => {
       });
     });
 
-    it('sould make post request', async () => {
+    it('sould make post request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .post(`/v1/${endpoint}`, {
@@ -154,7 +154,7 @@ describe('Instagram', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .post(`/v1/${endpoint}`, {
@@ -196,7 +196,7 @@ describe('Instagram', () => {
       });
     });
 
-    it('sould make delete request', async () => {
+    it('sould make delete request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .delete(`/v1/${endpoint}`)
@@ -206,7 +206,7 @@ describe('Instagram', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .delete(`/v1/${endpoint}`)

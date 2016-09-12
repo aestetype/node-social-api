@@ -104,7 +104,7 @@ describe('Twitter', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
-    it('sould make get request', async () => {
+    it('sould make get request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://api.twitter.com')
         .get(`/1.1/${endpoint}.json`)
@@ -125,7 +125,7 @@ describe('Twitter', () => {
       });
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'search/tweets';
       nock('https://api.twitter.com')
         .get(`/1.1/${endpoint}.json`)
@@ -164,7 +164,7 @@ describe('Twitter', () => {
       });
     });
 
-    it('sould make post request', async () => {
+    it('sould make post request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://api.twitter.com')
         .post(`/1.1/${endpoint}.json`)
@@ -173,7 +173,7 @@ describe('Twitter', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'statuses/update';
       nock('https://api.twitter.com')
         .post(`/1.1/${endpoint}.json`, {
@@ -213,7 +213,7 @@ describe('Twitter', () => {
       });
     });
 
-    it('sould make delete request', async () => {
+    it('sould make delete request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://api.twitter.com')
         .delete(`/1.1/${endpoint}.json`)
@@ -222,7 +222,7 @@ describe('Twitter', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'search/tweets';
       nock('https://api.twitter.com')
         .delete(`/1.1/${endpoint}.json`)

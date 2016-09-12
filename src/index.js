@@ -4,7 +4,7 @@ import Facebook from './facebook';
 import Tumblr from './tumblr';
 import Github from './github';
 
-export default {
+export {
   Instagram,
   Twitter,
   Facebook,

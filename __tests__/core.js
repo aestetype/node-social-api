@@ -38,7 +38,7 @@ describe('Core', () => {
       expect(promise instanceof Promise).toBeTruthy();
     });
 
-    it('should return request result in promise', async () => {
+    it('should return request result in promise', (async) () => {
       nock('https://api.instagram.com')
         .get('/')
         .reply(200, 'success');
@@ -49,7 +49,7 @@ describe('Core', () => {
       expect(result).toEqual('success');
     });
 
-    it('should return request error in promise', async () => {
+    it('should return request error in promise', (async) () => {
       nock('https://api.instagram.com')
         .get('/')
         .reply(400, 'error');
@@ -63,7 +63,7 @@ describe('Core', () => {
       }
     });
 
-    it('should return connection error in promise', async () => {
+    it('should return connection error in promise', (async) () => {
       nock('https://api.instagram.com')
         .get('/')
         .delayConnection(2000)

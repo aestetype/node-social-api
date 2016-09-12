@@ -5,27 +5,23 @@ describe('lib', () => {
     expect(typeof lib).toEqual('object');
   });
 
-  it('should export with default object', () => {
-    expect(typeof lib.default).toEqual('object');
-  });
-
   it('should export Twitter', () => {
-    expect(lib.default.Twitter).toBeTruthy();
+    expect(lib.Twitter).toBeTruthy();
   });
 
   it('should export Instagram', () => {
-    expect(lib.default.Instagram).toBeTruthy();
+    expect(lib.Instagram).toBeTruthy();
   });
 
   it('should export Facebook', () => {
-    expect(lib.default.Facebook).toBeTruthy();
+    expect(lib.Facebook).toBeTruthy();
   });
 
   it('should export Tumblr', () => {
-    expect(lib.default.Tumblr).toBeTruthy();
+    expect(lib.Tumblr).toBeTruthy();
   });
 
   it('should export Github', () => {
-    expect(lib.default.Github).toBeTruthy();
+    expect(lib.Github).toBeTruthy();
   });
 });

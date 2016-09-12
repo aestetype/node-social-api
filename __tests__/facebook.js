@@ -108,7 +108,7 @@ describe('Facebook', () => {
       });
     });
 
-    it('sould make get request', async () => {
+    it('sould make get request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://graph.facebook.com')
         .get(`/v2.5/${endpoint}`)
@@ -118,7 +118,7 @@ describe('Facebook', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'search/tweets';
       nock('https://graph.facebook.com')
         .get(`/v2.5/${endpoint}`)
@@ -157,7 +157,7 @@ describe('Facebook', () => {
       });
     });
 
-    it('sould make post request', async () => {
+    it('sould make post request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://graph.facebook.com')
         .post(`/v2.5/${endpoint}`)
@@ -166,7 +166,7 @@ describe('Facebook', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'statuses/update';
       nock('https://graph.facebook.com')
         .post(`/v2.5/${endpoint}`, {
@@ -209,7 +209,7 @@ describe('Facebook', () => {
       });
     });
 
-    it('sould make delete request', async () => {
+    it('sould make delete request', (async) () => {
       const endpoint = 'media/recent';
       nock('https://graph.facebook.com')
         .delete(`/v2.5/${endpoint}`)
@@ -219,7 +219,7 @@ describe('Facebook', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'search/tweets';
       nock('https://graph.facebook.com')
         .delete(`/v2.5/${endpoint}`)

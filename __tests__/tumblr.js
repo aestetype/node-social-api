@@ -79,7 +79,7 @@ describe('Tumblr', () => {
       });
     });
 
-    it('sould make get request', async () => {
+    it('sould make get request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.tumblr.com')
         .get(`/v2/${endpoint}`)
@@ -89,7 +89,7 @@ describe('Tumblr', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.tumblr.com')
         .get(`/v2/${endpoint}`)
@@ -133,7 +133,7 @@ describe('Tumblr', () => {
       });
     });
 
-    it('sould make post request', async () => {
+    it('sould make post request', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.tumblr.com')
         .post(`/v2/${endpoint}`, {
@@ -144,7 +144,7 @@ describe('Tumblr', () => {
       expect(result).toBe('success');
     });
 
-    it('sould pass parameters', async () => {
+    it('sould pass parameters', (async) () => {
       const endpoint = 'tag/sunset';
       nock('https://api.tumblr.com')
         .post(`/v2/${endpoint}`, {
