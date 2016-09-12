@@ -16,4 +16,16 @@ describe('lib', () => {
   it('should export Instagram', () => {
     expect(lib.default.Instagram).toBeTruthy();
   });
+
+  it('should export Facebook', () => {
+    expect(lib.default.Facebook).toBeTruthy();
+  });
+
+  it('should export Tumblr', () => {
+    expect(lib.default.Tumblr).toBeTruthy();
+  });
+
+  it('should export Github', () => {
+    expect(lib.default.Github).toBeTruthy();
+  });
 });

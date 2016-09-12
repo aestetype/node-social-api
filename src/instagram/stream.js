@@ -11,6 +11,7 @@ import EventEmitter from 'events';
  * stream.on('message', (message) => {
  *  console.log(message);
  * });
+ *
  * // handle stream error
  * stream.on('error', (err) => {
  *  // An error occur
