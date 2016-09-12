@@ -31,6 +31,19 @@ describe('Github', () => {
       expect(github.options.access_token).toEqual(auth.accessToken);
     });
 
+    it('should set this.headers by default', () => {
+      const github = new Github(auth);
+      expect(github.headers['User-Agent']).toEqual('node-social-api');
+    });
+
+    it('should overwrite this.headers', () => {
+      const github = new Github({
+        accessToken: auth.accessToken,
+        userAgent: 'toto',
+      });
+      expect(github.headers['User-Agent']).toEqual('toto');
+    });
+
     it('should create baseApiUrl', () => {
       const github = new Github(auth);
       expect(github.baseApiUrl).toEqual(github.url);

@@ -21,6 +21,7 @@ class Github extends Core {
    *
    * @param {object} config - Config of class.
    * @param {string} config.accessToken - accessToken of Github.
+   * @param {string} [config.userAgent] - User-Agent header for requests.
    * @param {object} [options] - Options of class.
    *
    */
@@ -32,6 +33,9 @@ class Github extends Core {
     }
     this.options = {
       access_token: config.accessToken,
+    };
+    this.headers = {
+      'User-Agent': config.userAgent ? config.userAgent : 'node-social-api',
     };
     this.url = 'https://api.github.com';
     this.baseApiUrl = this.url;
@@ -55,6 +59,7 @@ class Github extends Core {
     return this.request({
       method: 'GET',
       json: true,
+      headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
       qs: Object.assign(this.options, options),
     }, callback);
@@ -78,6 +83,7 @@ class Github extends Core {
     return this.request({
       method: 'POST',
       json: true,
+      headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
       form: Object.assign(this.options, options),
     }, callback);
@@ -101,6 +107,7 @@ class Github extends Core {
     return this.request({
       method: 'DELETE',
       json: true,
+      headers: this.headers,
       uri: `${this.baseApiUrl}/${url}`,
       qs: Object.assign(this.options, options),
     }, callback);
