@@ -19,7 +19,8 @@
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
     "testPathIgnorePatterns": [
-      "__tests__/instagram/utils.js"
+      "__tests__/instagram/utils.js",
+      "__tests__/tumblr/utils.js"
     ],
     "moduleFileExtensions": [
       "js",

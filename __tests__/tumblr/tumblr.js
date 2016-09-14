@@ -1,6 +1,7 @@
 import nock from 'nock';
-import Core from '../src/core/core';
-import Tumblr from '../src/tumblr';
+import Core from '../../src/core/core';
+import Tumblr from '../../src/tumblr';
+import TumblrStream from '../../src/tumblr/stream';
 
 describe('Tumblr', () => {
   const auth = {
@@ -153,6 +154,21 @@ describe('Tumblr', () => {
         .reply(200, 'success');
       const result = await tumblr.post(endpoint, { q: 'sunset' });
       expect(result).toBe('success');
+    });
+  });
+
+  describe('#stream', () => {
+    const tumblr = new Tumblr(auth);
+
+    it('should be a function', () => {
+      expect(typeof tumblr.stream).toBe('function');
+    });
+
+    it('should return a stream', () => {
+      const stream = tumblr.stream('tags/sunset/media/recent', {
+        runOnCreation: false,
+      });
+      expect(stream instanceof TumblrStream).toBeTruthy();
     });
   });
 });

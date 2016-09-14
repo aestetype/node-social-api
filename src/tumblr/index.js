@@ -1,5 +1,6 @@
 import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
+import TumblrStream from './stream';
 
 /**
  * @class Tumblr
@@ -79,6 +80,19 @@ class Tumblr extends Core {
       uri: `${this.baseApiUrl}/${url}`,
       form: Object.assign({}, this.options, options),
     }, callback);
+  }
+
+  /**
+   * @memberof Tumblr
+   * @function stream
+   * @description Create a new tumblr stream.<br />
+   *
+   * @param  {string} url
+   * @param  {Object} [options]
+   * @return {TumblrStream} A new tumblr stream.
+   */
+  stream(url, options) {
+    return new TumblrStream(this, url, options);
   }
 }
 

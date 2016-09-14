@@ -1,6 +1,6 @@
 import Bluebird from 'bluebird';
 import nock from 'nock';
-import Core from '../src/core/core';
+import Core from '../../src/core/core';
 
 describe('Core', () => {
   it('should be a class', () => {

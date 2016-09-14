@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import Stream from '../core/stream';
 
 /**
  * @class InstagramStream
@@ -18,7 +18,7 @@ import EventEmitter from 'events';
  *  console.log(err);
  * });
  */
-class Stream extends EventEmitter {
+class InstagramStream extends Stream {
   /**
    * @private
    * @memberof InstagramStream
@@ -28,29 +28,11 @@ class Stream extends EventEmitter {
     super();
     this.instagram = instagram;
     this.endpoint = endpoint;
-    this.runOnCreation =
-      options.runOnCreation === false ? options.runOnCreation : true;
     this.interval = options.interval || 10000;
     this.minTagId = options.minTagId;
-    this.intervalId = null;
-    this.cache = [];
-    if (this.runOnCreation) {
+    if (options.runOnCreation !== false) {
       this.start();
     }
-  }
-
-  /**
-   * @memberof InstagramStream
-   * @description Start the stream.
-   */
-  start() {
-    this.startDate = new Date();
-    // Stop the old stream if there is one
-    this.stop();
-    // Call a first request
-    this.makeRequest();
-    // Start setInterval and store id
-    this.intervalId = setInterval(this.makeRequest.bind(this), this.interval);
   }
 
   /**
@@ -87,16 +69,6 @@ class Stream extends EventEmitter {
         this.emit('error', err.error || err);
       });
   }
-
-  /**
-   * @memberof InstagramStream
-   * @description Stop the stream.
-   */
-  stop() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
 }
 
-export default Stream;
+export default InstagramStream;
