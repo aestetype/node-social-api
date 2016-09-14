@@ -56,9 +56,9 @@
     "documentation": "^4.0.0-beta10",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.14.0",
-    "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.2.1",
     "jest": "^15.1.1",
     "nock": "^8.0.0"
   },
