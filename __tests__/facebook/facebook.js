@@ -1,6 +1,7 @@
 import nock from 'nock';
-import Core from '../src/core/core';
-import Facebook from '../src/facebook';
+import Core from '../../src/core/core';
+import Facebook from '../../src/facebook';
+import FacebookStream from '../../src/facebook/stream';
 
 describe('Facebook', () => {
   const auth = {
@@ -227,6 +228,21 @@ describe('Facebook', () => {
         .reply(200, 'success');
       const result = await facebook.delete(endpoint, { q: 'sunset' });
       expect(result).toBe('success');
+    });
+  });
+
+  describe('#stream', () => {
+    const facebook = new Facebook(auth);
+
+    it('should be a function', () => {
+      expect(typeof facebook.stream).toBe('function');
+    });
+
+    it('should return a stream', () => {
+      const stream = facebook.stream('tags/sunset/media/recent', {
+        runOnCreation: false,
+      });
+      expect(stream instanceof FacebookStream).toBeTruthy();
     });
   });
 });

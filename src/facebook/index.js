@@ -1,5 +1,6 @@
 import isFunction from 'lodash.isfunction';
 import Core from '../core/core';
+import FacebookStream from './stream';
 
 /**
  * @class Facebook
@@ -12,6 +13,12 @@ import Core from '../core/core';
  *
  * facebook.get('some-facebook-id').then((data) => {
  *  console.log(data);
+ * });
+ *
+ * const stream = facebook.stream(':some-page-id/feed');
+ *
+ * stream.on('message', (message) => {
+ *  console.log(message);
  * });
  */
 class Facebook extends Core {
@@ -111,6 +118,19 @@ class Facebook extends Core {
       uri: `${this.baseApiUrl}/${url}`,
       qs: Object.assign({}, this.options, options),
     }, callback);
+  }
+
+  /**
+   * @memberof Facebook
+   * @function stream
+   * @description Create a new facebook stream.
+   *
+   * @param  {string} url
+   * @param  {Object} [options]
+   * @return {TumblrStream} A new facebook stream.
+   */
+  stream(url, options) {
+    return new FacebookStream(this, url, options);
   }
 }
 

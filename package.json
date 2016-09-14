@@ -20,6 +20,7 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
     "testPathIgnorePatterns": [
       "__tests__/instagram/utils.js",
+      "__tests__/facebook/utils.js",
       "__tests__/tumblr/utils.js"
     ],
     "moduleFileExtensions": [
