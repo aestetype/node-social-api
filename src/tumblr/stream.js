@@ -1,6 +1,7 @@
 import Stream from '../core/stream';
 
 /**
+ * @private
  * @class TumblrStream
  * @description TumblrStream class
  * @example

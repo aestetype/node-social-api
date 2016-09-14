@@ -1,6 +1,7 @@
 import Stream from '../core/stream';
 
 /**
+ * @private
  * @class InstagramStream
  * @description InstagramStream class
  * @example
