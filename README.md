@@ -82,4 +82,14 @@ const tumblr = new Tumblr({
 tumblr.get('blog/scipsy.tumblr.com/info').then((data) => {
   console.log(data);
 });
+
+// Github
+const github = new Github({
+  accessToken: 'your-access-token',
+});
+
+// Some get query
+github.get(':some-github-route').then((data) => {
+  console.log(data);
+});
 ```
