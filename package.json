@@ -1,6 +1,6 @@
 {
   "name": "node-social-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Node social api",
   "main": "lib/index.js",
   "scripts": {
