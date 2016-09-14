@@ -13,6 +13,12 @@ import TumblrStream from './stream';
  * tumblr.get('some-tumblr-route').then((data) => {
  *  console.log(data);
  * });
+ *
+ * const stream = tumblr.stream('blog/museumdemain.tumblr.com/posts');
+ *
+ * stream.on('message', (message) => {
+ *  console.log(message);
+ * });
  */
 class Tumblr extends Core {
   /**
