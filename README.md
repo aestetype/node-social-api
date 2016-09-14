@@ -16,6 +16,7 @@ Include:
 * [Instagram](https://pradel.github.io/node-social-api/#instagram)
 * [Facebook](https://pradel.github.io/node-social-api/#facebook)
 * [Tumblr](https://pradel.github.io/node-social-api/#tumblr)
+* [Github](https://pradel.github.io/node-social-api/#github)
 
 ## Install
 
