@@ -26,6 +26,13 @@ describe('Github', () => {
       }
     });
 
+    it('should not throw if public provided', () => {
+      const github = new Github({
+        public: true,
+      });
+      expect(github.options).toEqual({});
+    });
+
     it('should set this.options', () => {
       const github = new Github(auth);
       expect(github.options.access_token).toEqual(auth.accessToken);

@@ -28,12 +28,13 @@ class Github extends Core {
   constructor(config = {}, options = {}) {
     super(options);
     this.name = 'github';
-    if (!config.accessToken) {
+    if (!config.accessToken && !config.public) {
       this.checkValidConfig(['accessToken'], config);
     }
-    this.options = {
-      access_token: config.accessToken,
-    };
+    this.options = {};
+    if (config.accessToken) {
+      this.options.access_token = config.accessToken;
+    }
     this.headers = {
       'User-Agent': config.userAgent ? config.userAgent : 'node-social-api',
     };
