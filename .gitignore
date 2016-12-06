@@ -9,3 +9,6 @@ coverage
 
 # documentation
 docs
+
+# logs
+*.log
