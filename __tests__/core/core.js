@@ -66,16 +66,16 @@ describe('Core', () => {
     it('should return connection error in promise', async () => {
       nock('https://api.instagram.com')
         .get('/')
-        .delayConnection(2000)
+        .socketDelay(4000)
         .reply(400, 'error');
       try {
         await core.request({
           method: 'GET',
           uri: 'https://api.instagram.com',
-          timeout: 1000,
+          timeout: 100,
         });
       } catch (err) {
-        expect(err.code).toEqual('ETIMEDOUT');
+        expect(err.code).toEqual('ESOCKETTIMEDOUT');
       }
     });
 
@@ -111,14 +111,14 @@ describe('Core', () => {
     it('should return connection error in callback', (done) => {
       nock('https://api.instagram.com')
         .get('/')
-        .delayConnection(2000)
+        .socketDelay(3000)
         .reply(400, 'error');
       core.request({
         method: 'GET',
         uri: 'https://api.instagram.com',
-        timeout: 1000,
+        timeout: 100,
       }, (err, result) => {
-        expect(err.code).toEqual('ETIMEDOUT');
+        expect(err.code).toEqual('ESOCKETTIMEDOUT');
         expect(result).toEqual(undefined);
         done();
       });
