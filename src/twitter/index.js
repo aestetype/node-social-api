@@ -34,7 +34,7 @@ class Twitter extends Core {
     this.name = 'twitter';
     this.checkValidConfig(
       ['consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret'],
-      config
+      config,
     );
     this.oauth = {
       consumer_key: config.consumerKey,
