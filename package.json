@@ -1,6 +1,6 @@
 {
   "name": "node-social-api",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Node social api",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,9 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
     "testPathIgnorePatterns": [
       "__tests__/instagram/utils.js",
