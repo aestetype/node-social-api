@@ -1,6 +1,6 @@
 {
   "name": "@aestetype/node-social-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "scripts": {
     "precommit": "yarn format",
