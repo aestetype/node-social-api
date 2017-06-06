@@ -29,7 +29,7 @@ describe('Instagram', () => {
       }
     });
 
-    it('should set this.options', () => {
+    it('should set this.config', () => {
       const instagram = new Instagram(auth);
       expect(instagram.config.client_id).toEqual(auth.clientId);
       expect(instagram.config.access_token).toEqual(auth.accessToken);
