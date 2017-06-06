@@ -15,7 +15,7 @@ describe('Facebook', () => {
   describe('#constructor', () => {
     it('should throw if no appId provided', () => {
       try {
-        new Facebook({}); // eslint-disable-line no-new
+        new Facebook({});
       } catch (e) {
         expect(e.message).toMatch(/appId/);
       }
@@ -23,7 +23,7 @@ describe('Facebook', () => {
 
     it('should throw if no appSecret provided', () => {
       try {
-        new Facebook({ appId: 'appId' }); // eslint-disable-line no-new
+        new Facebook({ appId: 'appId' });
       } catch (e) {
         expect(e.message).toMatch(/appSecret/);
       }
@@ -31,7 +31,6 @@ describe('Facebook', () => {
 
     it('should not throw if accessToken provided', () => {
       const facebook = new Facebook({
-        // eslint-disable-line no-new
         accessToken: 'accessToken',
       });
       expect(facebook).toBeTruthy();
