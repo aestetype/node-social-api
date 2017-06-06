@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
-    "testonly": "jest",
+    "testonly": "jest --coverage",
     "test": "yarn lint && yarn testonly && yarn build"
   },
   "jest": {
@@ -14,12 +14,7 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": ["ts", "tsx", "js"],
-    "mapCoverage": true,
-    "globals": {
-      "__TS_CONFIG__": {
-        "module": "commonjs"
-      }
-    }
+    "mapCoverage": true
   },
   "repository": "https://github.com/aestetype/node-social-api.git",
   "author": "Pradel Léo <pradel.leo@gmail.com>",
