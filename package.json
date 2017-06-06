@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "lib/index.js",
   "scripts": {
+    "precommit": "yarn format",
     "format": "prettier --single-quote --write --trailing-comma es5 \"{src,__tests__}/**/*.ts\" && yarn lint -- --fix",
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
@@ -26,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "codecov": "^2.2.0",
+    "husky": "^0.13.4",
     "jest": "^20.0.4",
     "nock": "^9.0.13",
     "prettier": "^1.4.2",
