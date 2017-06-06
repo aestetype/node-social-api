@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "./lib",
     "target": "es5",
     "sourceMap": true,
-    "removeComments": true
+    "removeComments": true,
+    "declaration": true
   },
   "include": [
     "./src/**/*"
