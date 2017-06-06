@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "main": "lib/index.js",
   "scripts": {
+    "precommit": "yarn format",
+    "format": "prettier --single-quote --write --trailing-comma es5 \"{src,__tests__}/**/*.ts\" && yarn lint -- --fix",
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
     "testonly": "jest --coverage",
@@ -13,7 +15,11 @@
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
-    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "mapCoverage": true
   },
   "repository": "https://github.com/aestetype/node-social-api.git",
@@ -21,8 +27,10 @@
   "license": "MIT",
   "devDependencies": {
     "codecov": "^2.2.0",
+    "husky": "^0.13.4",
     "jest": "^20.0.4",
     "nock": "^9.0.13",
+    "prettier": "^1.4.2",
     "ts-jest": "^20.0.5",
     "tslint": "^5.4.2",
     "tslint-config-airbnb": "^5.0.1",
