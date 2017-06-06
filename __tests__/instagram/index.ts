@@ -1,5 +1,5 @@
 import nock from 'nock';
-import { Instagram } from '../../src/index';
+import { Instagram } from '../../src';
 
 describe('Instagram', () => {
   const auth = {

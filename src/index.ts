@@ -1,5 +1,5 @@
 // tslint:disable-next-line
-import Instagram from './Instagram/index';
+import Instagram from './Instagram';
 
 export {
   Instagram,
