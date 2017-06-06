@@ -58,7 +58,11 @@ describe('Instagram', () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .get(`/v1/${endpoint}`)
-        .query({ client_id: auth.clientId, access_token: auth.accessToken, q: 'sunset' })
+        .query({
+          client_id: auth.clientId,
+          access_token: auth.accessToken,
+          q: 'sunset',
+        })
         .reply(200, 'success');
       const result = await instagram.get(endpoint, { q: 'sunset' });
       expect(result).toBe('success');
@@ -72,7 +76,8 @@ describe('Instagram', () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .post(`/v1/${endpoint}`, {
-          client_id: auth.clientId, access_token: auth.accessToken,
+          client_id: auth.clientId,
+          access_token: auth.accessToken,
         })
         .reply(200, 'success');
       const result = await instagram.post(endpoint);
@@ -83,7 +88,9 @@ describe('Instagram', () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .post(`/v1/${endpoint}`, {
-          client_id: auth.clientId, access_token: auth.accessToken, q: 'sunset',
+          client_id: auth.clientId,
+          access_token: auth.accessToken,
+          q: 'sunset',
         })
         .reply(200, 'success');
       const result = await instagram.post(endpoint, { q: 'sunset' });
@@ -108,7 +115,11 @@ describe('Instagram', () => {
       const endpoint = 'tag/sunset';
       nock('https://api.instagram.com')
         .delete(`/v1/${endpoint}`)
-        .query({ client_id: auth.clientId, access_token: auth.accessToken, q: 'sunset' })
+        .query({
+          client_id: auth.clientId,
+          access_token: auth.accessToken,
+          q: 'sunset',
+        })
         .reply(200, 'success');
       const result = await instagram.delete(endpoint, { q: 'sunset' });
       expect(result).toBe('success');
