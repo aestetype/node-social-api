@@ -1,4 +1,4 @@
-import * as rp from 'request-promise';
+import requestPromise from 'request-promise';
 import { checkValidConfig } from '../utils';
 
 export interface InstagramConfig {
@@ -27,7 +27,7 @@ class Instagram {
   }
 
   get(url: string, params: object): Promise<any> {
-    return rp({
+    return requestPromise({
       method: 'GET',
       json: true,
       uri: `${this.apiUrl}/${url}`,
@@ -36,7 +36,7 @@ class Instagram {
   }
 
   post(url: string, params: object): Promise<any> {
-    return rp({
+    return requestPromise({
       method: 'POST',
       json: true,
       uri: `${this.apiUrl}/${url}`,
@@ -45,7 +45,7 @@ class Instagram {
   }
 
   delete(url: string, params: object): Promise<any> {
-    return rp({
+    return requestPromise({
       method: 'DELETE',
       json: true,
       uri: `${this.apiUrl}/${url}`,
