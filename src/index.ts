@@ -1,5 +1,5 @@
-import Instagram from './Instagram';
+import index from './Instagram/index';
 
 export {
-  Instagram,
+  index as Instagram,
 };

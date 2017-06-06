@@ -6,18 +6,14 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
     "testonly": "jest --coverage",
-    "test": "yarn lint && yarn testonly"
+    "test": "yarn lint && yarn testonly && yarn build"
   },
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "mapCoverage": true
   },
   "repository": "https://github.com/aestetype/node-social-api.git",
