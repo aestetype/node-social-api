@@ -31,11 +31,6 @@ instagram.get('users/self').then((data) => {
   console.log(data);
 });
 
-// Some get query with callback
-instagram.get('users/self', (err, data) => {
-  console.log(data);
-});
-
 // Create a new stream and only receive new messages
 const stream = instagram.stream('tags/:tag-name/media/recent');
 
