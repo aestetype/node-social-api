@@ -1,0 +1,35 @@
+{
+  "name": "@aestetype/node-social-api",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "mapCoverage": true
+  },
+  "repository": "https://github.com/aestetype/node-social-api.git",
+  "author": "Pradel Léo <pradel.leo@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "nock": "^9.0.13",
+    "ts-jest": "^20.0.5",
+    "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "@types/request-promise": "^4.1.33",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
