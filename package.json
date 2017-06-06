@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
-    "testonly": "jest --coverage",
+    "testonly": "jest",
     "test": "yarn lint && yarn testonly && yarn build"
   },
   "jest": {
