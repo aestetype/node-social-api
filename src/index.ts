@@ -1,4 +1,4 @@
-import Instagram from './instagram';
+import Instagram from './Instagram';
 
 export {
   Instagram,

@@ -4,7 +4,9 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
+    "testonly": "jest --coverage",
+    "test": "yarn lint && yarn testonly"
   },
   "jest": {
     "transform": {
@@ -25,6 +27,8 @@
     "jest": "^20.0.4",
     "nock": "^9.0.13",
     "ts-jest": "^20.0.5",
+    "tslint": "^5.4.2",
+    "tslint-config-airbnb": "^5.0.1",
     "typescript": "^2.3.4"
   },
   "dependencies": {
