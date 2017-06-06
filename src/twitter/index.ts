@@ -21,7 +21,10 @@ class Twitter {
 
   constructor(config: TwitterConfig) {
     this.name = 'twitter';
-    checkValidConfig(['consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret'], config);
+    checkValidConfig(
+      ['consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret'],
+      config,
+    );
     this.config = {
       consumer_key: config.consumerKey,
       consumer_secret: config.consumerSecret,
