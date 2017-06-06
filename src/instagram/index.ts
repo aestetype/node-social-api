@@ -1,4 +1,4 @@
-import requestPromise from 'request-promise';
+import * as requestPromise from 'request-promise';
 import { checkValidConfig } from '../utils';
 
 export interface InstagramConfig {

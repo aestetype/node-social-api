@@ -14,7 +14,12 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": ["ts", "tsx", "js"],
-    "mapCoverage": true
+    "mapCoverage": true,
+    "globals": {
+      "__TS_CONFIG__": {
+        "module": "commonjs"
+      }
+    }
   },
   "repository": "https://github.com/aestetype/node-social-api.git",
   "author": "Pradel Léo <pradel.leo@gmail.com>",

@@ -1,4 +1,4 @@
-import nock from 'nock';
+import * as nock from 'nock';
 import { Instagram } from '../../src';
 
 describe('Instagram', () => {
