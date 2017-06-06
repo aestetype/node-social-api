@@ -36,7 +36,6 @@ class Twitter {
   }
 
   get(url: string, params: object = {}): Promise<any> {
-    console.log(`${this.apiUrl}/${url}.json`);
     return requestPromise({
       method: 'GET',
       json: true,
