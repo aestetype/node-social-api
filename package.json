@@ -10,6 +10,9 @@
     "testonly": "jest --coverage",
     "test": "yarn lint && yarn testonly && yarn build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
