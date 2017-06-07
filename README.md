@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/aestetype/node-social-api.svg?style=svg)](https://circleci.com/gh/aestetype/node-social-api)
 [![codecov](https://codecov.io/gh/aestetype/node-social-api/branch/master/graph/badge.svg)](https://codecov.io/gh/aestetype/node-social-api)
 
-Social api client for node that support promises and callback.
+Social api client for node with typescript definitions that support promises.
 Include:
 * Twitter
 * Instagram
@@ -29,13 +29,6 @@ const instagram = new Instagram({
 // Some get query with promise
 instagram.get('users/self').then((data) => {
   console.log(data);
-});
-
-// Create a new stream and only receive new messages
-const stream = instagram.stream('tags/:tag-name/media/recent');
-
-stream.on('message', (message) => {
-  console.log(message);
 });
 
 // Twitter
