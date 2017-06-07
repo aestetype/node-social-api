@@ -49,6 +49,10 @@ const facebook = new Facebook({
   appId: 'your-app-id',
   appSecret: 'your-app-secret',
 });
+// Or with a valid accessToken
+const facebook = new Facebook({
+  accessToken: 'your-access-token',
+});
 
 // Some get query
 facebook.get(':some-id').then((data) => {
@@ -68,6 +72,10 @@ tumblr.get('blog/scipsy.tumblr.com/info').then((data) => {
 // Github
 const github = new Github({
   accessToken: 'your-access-token',
+});
+// Or if you want to use the public api
+const github = new Github({
+  public: true,
 });
 
 // Some get query
