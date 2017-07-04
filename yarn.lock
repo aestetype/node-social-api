@@ -47,9 +47,9 @@
   version "7.0.27"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.27.tgz#ba5e1a87aca2b4f5817289615ffe56472927687e"
 
-"@types/request-promise@^4.1.33":
-  version "4.1.33"
-  resolved "https://registry.yarnpkg.com/@types/request-promise/-/request-promise-4.1.33.tgz#b0cde534f80ebae026eb5fa470e45a192682ca1e"
+"@types/request-promise@^4.1.35":
+  version "4.1.35"
+  resolved "https://registry.yarnpkg.com/@types/request-promise/-/request-promise-4.1.35.tgz#955d54da582dccb7d61e235a078c957f9cd7d4c7"
   dependencies:
     "@types/bluebird" "*"
     "@types/request" "*"
@@ -2551,11 +2551,12 @@ tslib@^1.0.0, tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
-tslint-config-airbnb@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.0.1.tgz#07048c4125debc6c05898b3085e0079e04f16b86"
+tslint-config-airbnb@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.2.1.tgz#dec25ce496ad223d970506ce1cd1ded9f9b3af93"
   dependencies:
-    tslint-eslint-rules "^4.0.0"
+    tslint-consistent-codestyle "^1.4.0"
+    tslint-eslint-rules "^4.1.1"
     tslint-microsoft-contrib "^5.0.0"
     vrsource-tslint-rules "^5.1.0"
 
@@ -2563,7 +2564,14 @@ tslint-config-prettier@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.1.0.tgz#40c026a56e4da27063b3e9bcd71f4f8109fee369"
 
-tslint-eslint-rules@^4.0.0:
+tslint-consistent-codestyle@^1.4.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/tslint-consistent-codestyle/-/tslint-consistent-codestyle-1.5.1.tgz#11b6ae6af5a53cb6bd0351d9b6637eabc76d9b7d"
+  dependencies:
+    tslib "^1.7.1"
+    tsutils "^2.5.0"
+
+tslint-eslint-rules@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-4.1.1.tgz#7c30e7882f26bc276bff91d2384975c69daf88ba"
   dependencies:
@@ -2611,6 +2619,12 @@ tsutils@^1.4.0:
 tsutils@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.3.0.tgz#96e661d7c2363f31adc8992ac67bbe7b7fc175e5"
+
+tsutils@^2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.5.1.tgz#c2001390c79eec1a5ccfa7ac12d599639683e0cf"
+  dependencies:
+    tslib "^1.7.1"
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
