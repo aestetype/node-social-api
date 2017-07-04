@@ -23,7 +23,7 @@ class Tumblr {
     this.apiUrl = `https://api.tumblr.com/${apiVersion}`;
   }
 
-  get(url: string, params: object): Promise<any> {
+  public get(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'GET',
       json: true,
@@ -32,7 +32,7 @@ class Tumblr {
     });
   }
 
-  post(url: string, params: object): Promise<any> {
+  public post(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'POST',
       json: true,

@@ -26,7 +26,7 @@ class Instagram {
     this.apiUrl = `https://api.instagram.com/${apiVersion}`;
   }
 
-  get(url: string, params: object): Promise<any> {
+  public get(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'GET',
       json: true,
@@ -35,7 +35,7 @@ class Instagram {
     });
   }
 
-  post(url: string, params: object): Promise<any> {
+  public post(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'POST',
       json: true,
@@ -44,7 +44,7 @@ class Instagram {
     });
   }
 
-  delete(url: string, params: object): Promise<any> {
+  public delete(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'DELETE',
       json: true,

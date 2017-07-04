@@ -27,7 +27,7 @@ class Facebook {
     this.apiUrl = `https://graph.facebook.com/${apiVersion}`;
   }
 
-  get(url: string, params: object): Promise<any> {
+  public get(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'GET',
       json: true,
@@ -36,7 +36,7 @@ class Facebook {
     });
   }
 
-  post(url: string, params: object): Promise<any> {
+  public post(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'POST',
       json: true,
@@ -45,7 +45,7 @@ class Facebook {
     });
   }
 
-  delete(url: string, params: object): Promise<any> {
+  public delete(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'DELETE',
       json: true,

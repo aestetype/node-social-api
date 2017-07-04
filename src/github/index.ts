@@ -31,7 +31,7 @@ class Github {
     this.apiUrl = 'https://api.github.com';
   }
 
-  get(url: string, params: object): Promise<any> {
+  public get(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'GET',
       json: true,
@@ -41,7 +41,7 @@ class Github {
     });
   }
 
-  post(url: string, params: object): Promise<any> {
+  public post(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'POST',
       json: true,
@@ -51,7 +51,7 @@ class Github {
     });
   }
 
-  delete(url: string, params: object): Promise<any> {
+  public delete(url: string, params: object): Promise<any> {
     return requestPromise({
       method: 'DELETE',
       json: true,

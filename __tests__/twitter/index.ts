@@ -17,7 +17,7 @@ describe('Twitter', () => {
   describe('#constructor', () => {
     it('should throw if no consumerKey provided', () => {
       try {
-        new Twitter();
+        new Twitter(); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/consumerKey/);
       }
@@ -25,7 +25,7 @@ describe('Twitter', () => {
 
     it('should throw if no consumerSecret provided', () => {
       try {
-        new Twitter({ consumerKey: 'consumerKey' });
+        new Twitter({ consumerKey: 'consumerKey' }); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/consumerSecret/);
       }
@@ -34,6 +34,7 @@ describe('Twitter', () => {
     it('should throw if no accessToken provided', () => {
       try {
         new Twitter({
+          // tslint:disable-line
           consumerKey: 'consumerKey',
           consumerSecret: 'consumerSecret',
         });
@@ -45,6 +46,7 @@ describe('Twitter', () => {
     it('should throw if no accessTokenSecret provided', () => {
       try {
         new Twitter({
+          // tslint:disable-line
           consumerKey: 'consumerKey',
           consumerSecret: 'consumerSecret',
           accessToken: 'accessToken',

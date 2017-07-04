@@ -15,7 +15,7 @@ describe('Instagram', () => {
   describe('#constructor', () => {
     it('should throw if no clientId provided', () => {
       try {
-        new Instagram();
+        new Instagram(); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/clientId/);
       }
@@ -23,7 +23,7 @@ describe('Instagram', () => {
 
     it('should throw if no accessToken provided', () => {
       try {
-        new Instagram({ clientId: 'clientId' });
+        new Instagram({ clientId: 'clientId' }); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/accessToken/);
       }

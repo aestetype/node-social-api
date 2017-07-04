@@ -1,7 +1,10 @@
 # @aestetype/node-social-api
 
+[![npm version](https://badge.fury.io/js/%40aestetype%2Fnode-social-api.svg)](https://badge.fury.io/js/%40aestetype%2Fnode-social-api)
 [![CircleCI](https://circleci.com/gh/aestetype/node-social-api.svg?style=svg)](https://circleci.com/gh/aestetype/node-social-api)
 [![codecov](https://codecov.io/gh/aestetype/node-social-api/branch/master/graph/badge.svg)](https://codecov.io/gh/aestetype/node-social-api)
+[![Dependency Status](https://david-dm.org/aestetype/node-social-api.svg)](https://david-dm.org/aestetype/node-social-api)
+[![devDependency Status](https://david-dm.org/aestetype/node-social-api/dev-status.svg)](https://david-dm.org/aestetype/node-social-api#info=devDependencies)
 
 Social api client for node with typescript definitions that support promises.
 Include:

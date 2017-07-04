@@ -23,7 +23,7 @@ class Twitter {
     this.name = 'twitter';
     checkValidConfig(
       ['consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret'],
-      config,
+      config
     );
     this.config = {
       consumer_key: config.consumerKey,
@@ -35,7 +35,7 @@ class Twitter {
     this.apiUrl = `https://api.twitter.com/${apiVersion}`;
   }
 
-  get(url: string, params: object = {}): Promise<any> {
+  public get(url: string, params: object = {}): Promise<any> {
     return requestPromise({
       method: 'GET',
       json: true,
@@ -45,7 +45,7 @@ class Twitter {
     });
   }
 
-  post(url: string, params: object = {}): Promise<any> {
+  public post(url: string, params: object = {}): Promise<any> {
     return requestPromise({
       method: 'POST',
       json: true,
@@ -55,7 +55,7 @@ class Twitter {
     });
   }
 
-  delete(url: string, params: object = {}): Promise<any> {
+  public delete(url: string, params: object = {}): Promise<any> {
     return requestPromise({
       method: 'DELETE',
       json: true,

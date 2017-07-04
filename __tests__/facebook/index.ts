@@ -15,7 +15,7 @@ describe('Facebook', () => {
   describe('#constructor', () => {
     it('should throw if no appId provided', () => {
       try {
-        new Facebook({});
+        new Facebook({}); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/appId/);
       }
@@ -23,7 +23,7 @@ describe('Facebook', () => {
 
     it('should throw if no appSecret provided', () => {
       try {
-        new Facebook({ appId: 'appId' });
+        new Facebook({ appId: 'appId' }); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/appSecret/);
       }
@@ -44,7 +44,7 @@ describe('Facebook', () => {
     it('should generate access_token with appId and appSecret', () => {
       const facebook = new Facebook(auth);
       expect(facebook.config.access_token).toEqual(
-        `${auth.appId}|${auth.appSecret}`,
+        `${auth.appId}|${auth.appSecret}`
       );
     });
 

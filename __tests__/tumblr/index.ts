@@ -14,7 +14,7 @@ describe('Tumblr', () => {
   describe('#constructor', () => {
     it('should throw if no consumerKey provided', () => {
       try {
-        new Tumblr();
+        new Tumblr(); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/consumerKey/);
       }

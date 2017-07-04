@@ -1,13 +1,13 @@
-import instagram from './instagram';
-import twitter from './twitter';
 import facebook from './facebook';
-import tumblr from './tumblr';
 import github from './github';
+import instagram from './instagram';
+import tumblr from './tumblr';
+import twitter from './twitter';
 
 export {
-  instagram as Instagram,
-  twitter as Twitter,
   facebook as Facebook,
-  tumblr as Tumblr,
   github as Github,
+  instagram as Instagram,
+  tumblr as Tumblr,
+  twitter as Twitter,
 };

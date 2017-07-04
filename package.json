@@ -5,11 +5,12 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "precommit": "yarn format",
-    "format": "prettier --single-quote --write --trailing-comma es5 \"{src,__tests__}/**/*.ts\" && yarn lint -- --fix",
+    "format": "prettier --single-quote --trailing-comma es5 --write \"{src,__tests__}/**/*.ts\"",
+    "prettier-diff": "prettier --single-quote --trailing-comma es5 --list-different \"{src,__tests__}/**/*.ts\"",
     "build": "tsc",
-    "lint": "tslint -c tslint.json 'src/**/*.ts' '__tests__/**/*.ts'",
+    "lint": "tslint \"{src,__tests__}/**/*.ts\"",
     "testonly": "jest --coverage",
-    "test": "yarn lint && yarn testonly && yarn build"
+    "test": "yarn lint && yarn testonly && yarn build && yarn prettier-diff"
   },
   "publishConfig": {
     "access": "public"
@@ -34,13 +35,14 @@
   "license": "MIT",
   "devDependencies": {
     "codecov": "^2.2.0",
-    "husky": "^0.13.4",
+    "husky": "^0.14.2",
     "jest": "^20.0.4",
     "nock": "^9.0.13",
-    "prettier": "^1.4.2",
-    "ts-jest": "^20.0.5",
-    "tslint": "^5.4.2",
+    "prettier": "^1.5.2",
+    "ts-jest": "^20.0.6",
+    "tslint": "^5.4.3",
     "tslint-config-airbnb": "^5.0.1",
+    "tslint-config-prettier": "^1.1.0",
     "typescript": "^2.3.4"
   },
   "dependencies": {

@@ -14,7 +14,7 @@ describe('Github', () => {
   describe('#constructor', () => {
     it('should throw if no accessToken provided', () => {
       try {
-        new Github({});
+        new Github({}); // tslint:disable-line
       } catch (e) {
         expect(e.message).toMatch(/accessToken/);
       }
@@ -35,7 +35,7 @@ describe('Github', () => {
     it('should set this.headers by default', () => {
       const github = new Github(auth);
       expect(github.headers['User-Agent']).toEqual(
-        '@aestetype/node-social-api',
+        '@aestetype/node-social-api'
       );
     });
 
