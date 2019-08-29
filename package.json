@@ -58,7 +58,7 @@
     "bluebird": "3.4.6",
     "coveralls": "2.11.15",
     "documentation": "4.0.0-beta9",
-    "eslint": "4.19.1",
+    "eslint": "6.2.2",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
