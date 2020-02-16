@@ -64,7 +64,7 @@
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.8.0",
     "jest": "17.0.3",
-    "nock": "9.0.2"
+    "nock": "11.9.1"
   },
   "dependencies": {
     "lodash.isfunction": "^3.0.8",
